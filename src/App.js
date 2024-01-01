@@ -5,11 +5,8 @@ import {
     Route,
     Link
 } from 'react-router-dom';
-
-import Countdown from "./components/countdown/Countdown";
-import Header from "./components/header/Header";
-import Home from "./components/home/Home";
 import Layout from "./components/layout/Layout";
+import UserInformation from "./components/userInformation/UserInformation";
 
 function App() {
   return (
@@ -18,7 +15,7 @@ function App() {
           <Router>
               <Routes>
                   {/*<Route path="/" element={<Home />} />*/}
-                  <Route path="/" element={<Home />} />
+                  <Route path="/" element={<UserInformation />} />
               </Routes>
           </Router>
       </Layout>
