@@ -7,6 +7,7 @@ import {
 } from 'react-router-dom';
 import Layout from "./components/layout/Layout";
 import UserInformation from "./components/userInformation/UserInformation";
+import QuestionOne from "./components/questionOne/QuestionOne";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Router>
               <Routes>
                   {/*<Route path="/" element={<Home />} />*/}
+                  <Route path="/QuestionOne" element={<QuestionOne />} />
                   <Route path="/" element={<UserInformation />} />
               </Routes>
           </Router>
