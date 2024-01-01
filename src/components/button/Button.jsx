@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import './Button.css'
 
-function Button({children, style}) {
+function Button({children = "Click", style, onClick= ()=> {}}) {
 
 
     return (
-        <button style={style} className="Button">{children}</button>
+        <button style={style} className="Button" onClick={onClick}>{children}</button>
     );
 }
 

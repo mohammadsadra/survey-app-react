@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Button from "../button/Button";
 import {Link, Navigate} from "react-router-dom";
-import TextInput from "../input/TextInput";
+import TextInput from "../input/textInput/TextInput";
 
 function UserInformation() {
 
