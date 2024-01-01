@@ -1,0 +1,10 @@
+.UserInformation input{
+    border: solid 1px var(--grey);
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+.UserInformation input:focus{
+    border: solid 1px var(--primary);
+    outline: none !important;
+    box-shadow: 0 0 5px #719ECE;
+}
