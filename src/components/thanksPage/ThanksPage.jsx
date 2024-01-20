@@ -5,6 +5,7 @@ function ThanksPage({logDate}) {
 
     useEffect(() => {
         logDate();
+        localStorage.clear();
     }, []);
 
     return (

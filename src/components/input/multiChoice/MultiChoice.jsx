@@ -1,19 +1,21 @@
 import React, { useState } from 'react';
 import './MultiChoice.css';
 
-const MultiChoice = ({ options, multiple=true, selectedOptions, setSelectedOptions }) => {
+const MultiChoice = ({ options, multiple=true, selectedOptions, setSelectedOptions, questionNumber = '2' }) => {
     // const [selectedOptions, setSelectedOptions] = useState(multiple ? [] : '');
 
     const handleCheckboxChange = (option) => {
         if (multiple) {
-            // Multiple selection logic
             if (selectedOptions.includes(option)) {
                 setSelectedOptions(selectedOptions.filter((selected) => selected !== option));
+                localStorage.setItem(questionNumber,JSON.stringify([selectedOptions.filter((selected) => selected !== option)]))
             } else {
                 setSelectedOptions([...selectedOptions, option]);
+                localStorage.setItem(questionNumber, JSON.stringify([...selectedOptions, option]))
             }
         } else {
             setSelectedOptions([option])
+            localStorage.setItem(questionNumber, JSON.stringify([option]))
         }
     };
 

@@ -38,8 +38,6 @@ function Countdown() {
         setSecond2(parseInt(localStorage.getItem('second2')))
     }
     const resetTime = () =>{
-        console.log('im reset')
-
         localStorage.setItem('minute1', "0");
         localStorage.setItem('minute2', defaultTime.toString());
         setMinute1(0)
@@ -49,11 +47,7 @@ function Countdown() {
         localStorage.setItem('second2', "0");
         setSecond1(0)
         setSecond2(0)
-
-
     }
-
-
 
     useEffect(()=>{
         if (window.location.href.includes('thanks') || window.location.href.includes('finish')){

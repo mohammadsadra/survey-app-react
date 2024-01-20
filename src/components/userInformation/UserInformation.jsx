@@ -8,11 +8,25 @@ function UserInformation({setUserData}) {
     const [email, setEmail] = useState("");
     const handleName = (value) => {
         setName(value); // Update state
+        localStorage.setItem('name', name);
     };
 
     const handleEmail = (value) => {
-        setEmail(value); // Update state
+        setEmail(value);
+        localStorage.setItem('email', email);
     };
+
+    const readDefaultInput = () => {
+        const savedName = localStorage.getItem('name') === null ? "" : localStorage.getItem('name');
+        setName(savedName);
+
+        const savedEmail = localStorage.getItem('email') === null ? "" : localStorage.getItem('email');
+        setEmail(savedEmail);
+    };
+
+    useEffect(() => {
+        readDefaultInput()
+    }, []);
 
     return (
         <div className="UserInformation d-flex flex-column justify-content-center align-items-center">
@@ -22,12 +36,12 @@ function UserInformation({setUserData}) {
 
             <div className="mb-3">
                 <div className="mb-2 fw-semibold">Name:</div>
-                <TextInput setInput={(data => handleName(data))} placeholder={"Please enter your name."} type={"text"}/>
+                <TextInput value={name} setInput={(data => handleName(data))} placeholder={"Please enter your name."} type={"text"}/>
             </div>
 
             <div className="mb-5">
                 <div className="mb-2 fw-semibold">Email:</div>
-                <TextInput setInput={(data => handleEmail(data))} placeholder={"Please enter your email."} type={"email"}/>
+                <TextInput value={email} setInput={(data => handleEmail(data))} placeholder={"Please enter your email."} type={"email"}/>
             </div>
 
 
