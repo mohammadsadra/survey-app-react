@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import './MultiChoice.css';
 
-const MultiChoice = ({ options, multiple=true }) => {
-    const [selectedOptions, setSelectedOptions] = useState(multiple ? [] : '');
+const MultiChoice = ({ options, multiple=true, selectedOptions, setSelectedOptions }) => {
+    // const [selectedOptions, setSelectedOptions] = useState(multiple ? [] : '');
 
     const handleCheckboxChange = (option) => {
         if (multiple) {
@@ -13,8 +13,7 @@ const MultiChoice = ({ options, multiple=true }) => {
                 setSelectedOptions([...selectedOptions, option]);
             }
         } else {
-            // Single selection logic
-            setSelectedOptions(option);
+            setSelectedOptions([option])
         }
     };
 
@@ -26,7 +25,7 @@ const MultiChoice = ({ options, multiple=true }) => {
                         type={multiple ? "checkbox" : "radio"}
                         name="multiChoice"
                         value={option}
-                        checked={multiple ? selectedOptions.includes(option) : selectedOptions === option}
+                        checked={multiple ? selectedOptions.includes(option) : selectedOptions[0] === option}
                         onChange={() => handleCheckboxChange(option)}
                         className={"checkboxStyle"}
                     />

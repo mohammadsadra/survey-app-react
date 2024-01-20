@@ -2,31 +2,48 @@ import './App.css';
 import {
     BrowserRouter as Router,
     Routes,
-    Route,
-    Link
+    Route
 } from 'react-router-dom';
 import Layout from "./components/layout/Layout";
 import UserInformation from "./components/userInformation/UserInformation";
-import QuestionOne from "./components/questionOne/QuestionOne";
-import QuestionTwo from "./components/questionTwo/QuestionTwo";
-import QuestionThree from "./components/questionThree/QuestionThree";
+import QuestionOne from "./components/Questions/questionOne/QuestionOne";
+import QuestionTwo from "./components/Questions/questionTwo/QuestionTwo";
+import QuestionThree from "./components/Questions/questionThree/QuestionThree";
+import ThanksPage from "./components/thanksPage/ThanksPage";
+import {useState} from "react";
+import FinishTime from "./components/thanksPage/FinishTimePage";
 
 function App() {
-  return (
-    <div>
-      <Layout>
-          <Router>
-              <Routes>
-                  {/*<Route path="/" element={<Home />} />*/}
-                  <Route path="/QuestionThree" element={<QuestionThree />} />
-                  <Route path="/QuestionTwo" element={<QuestionTwo />} />
-                  <Route path="/QuestionOne" element={<QuestionOne />} />
-                  <Route path="/" element={<UserInformation />} />
-              </Routes>
-          </Router>
-      </Layout>
-    </div>
-  );
+    const[questionOne, setQuestionOne] = useState('');
+    const[questionTwo, setQuestionTwo] = useState([]);
+    const[questionThree, setQuestionThree] = useState('');
+    const[userData, setUserData] = useState('');
+
+    const logAllInformation = () => {
+        console.log('All Information:')
+        console.log(userData)
+        console.log('Q1:', questionOne)
+        console.log('Q2:', questionTwo)
+        console.log('Q3:', questionThree)
+    };
+
+
+    return (
+        <div>
+            <Layout>
+                <Router>
+                    <Routes>
+                        <Route path="/finish" element={<FinishTime />} />
+                        <Route path="/Thanks" element={<ThanksPage logDate={logAllInformation} />} />
+                        <Route path="/QuestionThree" element={<QuestionThree setQuestionAnswer={setQuestionThree}/>} />
+                        <Route path="/QuestionTwo" element={<QuestionTwo setQuestionAnswer={setQuestionTwo} />} />
+                        <Route path="/QuestionOne" element={<QuestionOne setQuestionAnswer={setQuestionOne} />} />
+                        <Route path="/" element={<UserInformation setUserData={setUserData} />} />
+                    </Routes>
+                </Router>
+            </Layout>
+        </div>
+    );
 }
 
 export default App;
