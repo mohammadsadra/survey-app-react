@@ -1,4 +1,5 @@
 import React, {useEffect} from 'react';
+import thanks from './thanks.jpeg';
 
 
 function ThanksPage({userData, q1, q2, q3}) {
@@ -15,7 +16,8 @@ function ThanksPage({userData, q1, q2, q3}) {
 
 
     return (
-        <div className="d-flex flex-column justify-content-center align-items-center">
+        <div className="d-flex flex-column justify-content-center align-items-center fadeIn">
+            <img className="picture" alt={"logo"} src={thanks}/>
             <h2 className="mt-5 mb-3">
                Thanks for doing the survey!
             </h2>

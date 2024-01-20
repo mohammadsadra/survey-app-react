@@ -27,7 +27,7 @@ function QuestionTwo({setQuestionAnswer}) {
         readDefaultInput()
     }, []);
     return (
-        <div className="d-flex flex-column justify-content-center align-items-center">
+        <div className="d-flex flex-column justify-content-center align-items-center fadeIn">
             <h2 className="mb-5">
                 2. Where is your favorite place to drink fruit juice?
             </h2>

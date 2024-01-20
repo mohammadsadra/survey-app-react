@@ -27,6 +27,20 @@ h5 {
   line-height: 25px;
 }
 
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.fadeIn {
+  animation: fadeIn ease 1s;
+  animation-fill-mode: forwards;
+}
+.picture{
+  width: 200px;
+  margin: 0 30px;
+}
+
 
 :root {
   --primary: #00A7AE;

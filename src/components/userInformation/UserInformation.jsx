@@ -29,7 +29,7 @@ function UserInformation({setUserData}) {
     }, []);
 
     return (
-        <div className="UserInformation d-flex flex-column justify-content-center align-items-center">
+        <div className="fadeIn UserInformation d-flex flex-column justify-content-center align-items-center">
             <h1>
                 Welcome to our survey :)
             </h1>

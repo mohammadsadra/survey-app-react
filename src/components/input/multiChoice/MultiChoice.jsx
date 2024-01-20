@@ -5,7 +5,6 @@ import {json} from "react-router-dom";
 const MultiChoice = ({ options, multiple=true, selectedOptions, setSelectedOptions, questionNumber = '2' }) => {
 
     const handleLocalStorage = (item) => {
-        console.log('asojaifejsdclj');
         let i = [];
         i = localStorage.getItem(questionNumber) === null ? [] : JSON.parse(localStorage.getItem(questionNumber))
         if (i.includes(item)){
@@ -14,7 +13,6 @@ const MultiChoice = ({ options, multiple=true, selectedOptions, setSelectedOptio
         } else {
             i.push(item);
         }
-        console.log(i);
         localStorage.setItem(questionNumber, JSON.stringify(i))
     }
     const handleCheckboxChange = (option) => {

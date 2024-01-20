@@ -25,7 +25,7 @@ function QuestionOne({setQuestionAnswer}) {
     }, []);
 
     return (
-        <div className="d-flex flex-column justify-content-center align-items-center">
+        <div className="d-flex flex-column justify-content-center align-items-center fadeIn">
             <h2 className="mb-5">
                 1. What is your favorite fruit juice?
             </h2>
