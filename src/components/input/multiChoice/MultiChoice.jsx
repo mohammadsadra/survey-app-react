@@ -1,18 +1,30 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import './MultiChoice.css';
+import {json} from "react-router-dom";
 
 const MultiChoice = ({ options, multiple=true, selectedOptions, setSelectedOptions, questionNumber = '2' }) => {
-    // const [selectedOptions, setSelectedOptions] = useState(multiple ? [] : '');
 
+    const handleLocalStorage = (item) => {
+        console.log('asojaifejsdclj');
+        let i = [];
+        i = localStorage.getItem(questionNumber) === null ? [] : JSON.parse(localStorage.getItem(questionNumber))
+        if (i.includes(item)){
+            const index = i.indexOf(item)
+            i.splice(index, 1)
+        } else {
+            i.push(item);
+        }
+        console.log(i);
+        localStorage.setItem(questionNumber, JSON.stringify(i))
+    }
     const handleCheckboxChange = (option) => {
         if (multiple) {
             if (selectedOptions.includes(option)) {
                 setSelectedOptions(selectedOptions.filter((selected) => selected !== option));
-                localStorage.setItem(questionNumber,JSON.stringify([selectedOptions.filter((selected) => selected !== option)]))
             } else {
                 setSelectedOptions([...selectedOptions, option]);
-                localStorage.setItem(questionNumber, JSON.stringify([...selectedOptions, option]))
             }
+            handleLocalStorage(option)
         } else {
             setSelectedOptions([option])
             localStorage.setItem(questionNumber, JSON.stringify([option]))

@@ -1,12 +1,18 @@
 import React, {useEffect} from 'react';
 
 
-function ThanksPage({logDate}) {
+function ThanksPage({userData, q1, q2, q3}) {
 
     useEffect(() => {
-        logDate();
-        localStorage.clear();
+            console.log('All Information:')
+            console.log(userData)
+            console.log('Q1:', q1)
+            console.log('Q2:', q2)
+            console.log('Q3:', q3)
+            localStorage.clear();
+
     }, []);
+
 
     return (
         <div className="d-flex flex-column justify-content-center align-items-center">

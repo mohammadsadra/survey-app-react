@@ -46,7 +46,7 @@ function UserInformation({setUserData}) {
 
 
             <Link style={{textDecoration: "none", color:"white"}} to="/QuestionOne">
-                <Button onClick={setUserData("Name: " + name + ". Email: " + email)} style={{background: "var(--primary)", color: "white"}}>Next</Button>
+                <Button onClick={() => setUserData("Name: " + name + ". Email: " + email)} style={{background: "var(--primary)", color: "white"}}>Next</Button>
             </Link>
 
         </div>

@@ -19,22 +19,13 @@ function App() {
     const[questionThree, setQuestionThree] = useState('');
     const[userData, setUserData] = useState('');
 
-    const logAllInformation = () => {
-        console.log('All Information:')
-        console.log(userData)
-        console.log('Q1:', questionOne)
-        console.log('Q2:', questionTwo)
-        console.log('Q3:', questionThree)
-    };
-
-
     return (
         <div>
             <Layout>
                 <Router>
                     <Routes>
                         <Route path="/finish" element={<FinishTime />} />
-                        <Route path="/Thanks" element={<ThanksPage logDate={logAllInformation} />} />
+                        <Route path="/Thanks" element={<ThanksPage userData={userData} q1={questionOne} q2={questionTwo} q3={questionThree} />} />
                         <Route path="/QuestionThree" element={<QuestionThree setQuestionAnswer={setQuestionThree}/>} />
                         <Route path="/QuestionTwo" element={<QuestionTwo setQuestionAnswer={setQuestionTwo} />} />
                         <Route path="/QuestionOne" element={<QuestionOne setQuestionAnswer={setQuestionOne} />} />
